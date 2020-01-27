@@ -12,19 +12,19 @@ public class Slotmachine {
     public Integer getPayoutcycle(){
     return Payoutcycle;
 }
-    public Integer getPayoutamount(){
-    return Payoutamount;
-}
+    //public Integer getPayoutamount(){
+   // return Payoutamount;
+//}
     
     public Integer getTimetillnextpay(){
     return Timetillnextpay;
 }
-    public void setPayoutcycle(Integer p){
-    Payoutcycle =p;
-}
-    public void setPayoutamount(Integer p){
-    Payoutamount =p;
-}
+  //  public void setPayoutcycle(Integer p){
+   // Payoutcycle =p;
+//}
+   // public void setPayoutamount(Integer p){
+   // Payoutamount =p;
+//}
     public void setTimetillnextpay(Integer p){
     Timetillnextpay =p;
 }

@@ -13,13 +13,10 @@ public class MachineGo extends javax.swing.JFrame {
         slot2= new Slotmachine(20,10,20);
         slot3=new Slotmachine(30,15,30);
         numtries=0;
-        numquarters=0;//Integer.parseInt(txteq.getText());
+        numquarters=0;
         
     }
-    //public void playmachine(int n, Slotmachine sm){
-    //if(sm.Timetillnextpay>0){
-    //    n--;
-    //}}
+    
 
     
     @SuppressWarnings("unchecked")

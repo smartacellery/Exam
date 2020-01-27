@@ -5,7 +5,7 @@ public class Machine1 extends javax.swing.JFrame {
 
 
    Slotmachine slot1, slot2, slot3;
-   int numtries, numquarters;
+   int numtries, numquarters, a,b,c;
    
     public Machine1() {
         initComponents();
@@ -14,7 +14,7 @@ public class Machine1 extends javax.swing.JFrame {
         slot3=new Slotmachine(30,15,30);
         numtries=0;
         numquarters=0;//Integer.parseInt(txteq.getText());
-        
+        a=0;b=0;c=0;
     }
     /**
      * Creates new form Machine1
@@ -180,11 +180,27 @@ public class Machine1 extends javax.swing.JFrame {
             return;}
         if(numquarters<0){
             JOptionPane.showMessageDialog(this, "number of quarters must be positive");return;}
-        // numquarters=Integer.parseInt(txteq.getText());
-        while(numquarters>0){
-            slot1.setTimetillnextpay(slot1.getPayoutcycle()-Integer.parseInt(txtt1.getText()));
-            slot2.setTimetillnextpay(slot2.getPayoutcycle()-Integer.parseInt(txtt2.getText()));
-            slot3.setTimetillnextpay(slot3.getPayoutcycle()-Integer.parseInt(txtt3.getText()));
+        
+        if (slot1.getPayoutcycle()>=Integer.parseInt(txtt1.getText())){
+            a=slot1.getPayoutcycle()-Integer.parseInt(txtt1.getText());
+        }
+        else{a=Integer.parseInt(txtt1.getText())%slot1.getPayoutcycle();
+        }
+        if (slot2.getPayoutcycle()>=Integer.parseInt(txtt2.getText())){
+            b=slot1.getPayoutcycle()-Integer.parseInt(txtt2.getText());
+        }
+        else{b=Integer.parseInt(txtt2.getText())%slot2.getPayoutcycle();
+        }
+        if (slot3.getPayoutcycle()>=Integer.parseInt(txtt3.getText())){
+            a=slot3.getPayoutcycle()-Integer.parseInt(txtt3.getText());
+        }
+        else{a=Integer.parseInt(txtt1.getText())%slot1.getPayoutcycle();
+        }
+       
+            slot1.setTimetillnextpay(a);
+            slot2.setTimetillnextpay(b);
+            slot3.setTimetillnextpay(c);
+            while(numquarters>0){
             numquarters= slot1.playmachine(numquarters);
             numtries++;
             if (numquarters==0)break;
@@ -194,11 +210,9 @@ public class Machine1 extends javax.swing.JFrame {
             numquarters=slot3.playmachine(numquarters);
             numtries++;
             if (numquarters==0)break;}
-        // txteq.setText(""+numquarters);
+       
         txttb.setText(""+numtries);
-       // txtt1.setText(""+(slot1.getPayoutcycle() -slot1.getTimetillnextpay()));
-       // txtt2.setText(""+(slot2.getPayoutcycle() -slot2.getTimetillnextpay()));
-        //txtt3.setText(""+(slot3.getPayoutcycle()-slot3.getTimetillnextpay()));
+  
         numquarters=0;
         btngo.setEnabled(false);
     }//GEN-LAST:event_btngoActionPerformed
